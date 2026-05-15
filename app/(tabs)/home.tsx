@@ -1,51 +1,20 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet } from "react-native";
 
-import { toggleTheme } from "../../src/features/theme";
-import { useAppDispatch, useTheme } from "../../src/hooks";
+import { ScreenWrapper, Typography } from "../../src/components/common";
 
 export default function HomeScreen() {
-  const theme = useTheme();
-  const dispatch = useAppDispatch();
-
   return (
-    <View
-      style={[
-        styles.container,
-        {
-          backgroundColor: theme.colors.background,
-        },
-      ]}
-    >
-      <Text style={[styles.title, { color: theme.colors.text }]}>
+    <ScreenWrapper>
+      <Typography size={30} weight="800" style={styles.title}>
         PennyFlow
-      </Text>
-
-      <TouchableOpacity
-        style={[styles.button, { backgroundColor: theme.colors.card }]}
-        onPress={() => dispatch(toggleTheme())}
-      >
-        <Text style={{ color: theme.colors.text }}>Toggle Theme</Text>
-      </TouchableOpacity>
-    </View>
+      </Typography>
+    </ScreenWrapper>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    gap: 20,
-  },
-
   title: {
-    fontSize: 30,
-    fontWeight: "800",
-  },
-
-  button: {
-    paddingHorizontal: 20,
-    paddingVertical: 12,
-    borderRadius: 12,
+    marginTop: 50,
+    marginLeft: 20,
   },
 });
