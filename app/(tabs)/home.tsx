@@ -1,7 +1,7 @@
 import { StyleSheet, View } from "react-native";
 
-import { STRINGS } from "@/src/constants";
 import { ScreenWrapper, Typography } from "../../src/components/common";
+import { STRINGS } from "../../src/constants";
 import { useTheme } from "../../src/hooks";
 
 export default function HomeScreen() {
@@ -51,6 +51,54 @@ export default function HomeScreen() {
             </Typography>
           </View>
         </View>
+
+        <View style={styles.transactionSection}>
+          <Typography size={20} weight="700">
+            Recent Transactions
+          </Typography>
+
+          <View
+            style={[
+              styles.transactionCard,
+              { backgroundColor: theme.colors.card },
+            ]}
+          >
+            <View>
+              <Typography size={16} weight="600">
+                {STRINGS.home.foodOrder}
+              </Typography>
+
+              <Typography size={13} color={theme.colors.mutedText}>
+                {STRINGS.home.today}
+              </Typography>
+            </View>
+
+            <Typography size={18} weight="700" color={theme.colors.expense}>
+              - ₹450
+            </Typography>
+          </View>
+
+          <View
+            style={[
+              styles.transactionCard,
+              { backgroundColor: theme.colors.card },
+            ]}
+          >
+            <View>
+              <Typography size={16} weight="600">
+                {STRINGS.home.salary}
+              </Typography>
+
+              <Typography size={13} color={theme.colors.mutedText}>
+                {STRINGS.home.yesterday}
+              </Typography>
+            </View>
+
+            <Typography size={18} weight="700" color={theme.colors.income}>
+              + ₹20,000
+            </Typography>
+          </View>
+        </View>
       </View>
     </ScreenWrapper>
   );
@@ -86,5 +134,18 @@ const styles = StyleSheet.create({
     padding: 16,
     borderRadius: 18,
     gap: 8,
+  },
+
+  transactionSection: {
+    marginTop: 28,
+    gap: 14,
+  },
+
+  transactionCard: {
+    padding: 16,
+    borderRadius: 18,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
 });
