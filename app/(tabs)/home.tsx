@@ -1,5 +1,6 @@
 import { StyleSheet, View } from "react-native";
 
+import { STRINGS } from "@/src/constants";
 import { ScreenWrapper, Typography } from "../../src/components/common";
 import { useTheme } from "../../src/hooks";
 
@@ -10,14 +11,14 @@ export default function HomeScreen() {
     <ScreenWrapper>
       <View style={styles.container}>
         <Typography size={30} weight="800" style={styles.title}>
-          PennyFlow
+          {STRINGS.appName}
         </Typography>
 
         <View
           style={[styles.balanceCard, { backgroundColor: theme.colors.card }]}
         >
           <Typography size={14} color={theme.colors.mutedText}>
-            Total Balance
+            {STRINGS.home.totalBalance}
           </Typography>
 
           <Typography size={34} weight="800" style={styles.balance}>
@@ -30,7 +31,7 @@ export default function HomeScreen() {
             style={[styles.summaryCard, { backgroundColor: theme.colors.card }]}
           >
             <Typography size={14} color={theme.colors.mutedText}>
-              Income
+              {STRINGS.home.income}
             </Typography>
 
             <Typography size={22} weight="800" color={theme.colors.income}>
@@ -42,7 +43,7 @@ export default function HomeScreen() {
             style={[styles.summaryCard, { backgroundColor: theme.colors.card }]}
           >
             <Typography size={14} color={theme.colors.mutedText}>
-              Expense
+              {STRINGS.home.expense}
             </Typography>
 
             <Typography size={22} weight="800" color={theme.colors.expense}>
